@@ -7,13 +7,13 @@
 
     <ImageView
         android:id="@+id/img_detail"
-        android:layout_width="93dp"
-        android:layout_height="100dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginLeft="8dp"
-        android:layout_marginRight="8dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
         android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
         android:scaleType="centerCrop"
         android:src="@mipmap/ic_launcher"
         app:layout_constraintEnd_toStartOf="@+id/guideline"
@@ -22,10 +22,10 @@
 
     <TextView
         android:id="@+id/nama"
-        android:layout_width="51dp"
-        android:layout_height="17dp"
-        android:layout_marginLeft="8dp"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
         android:layout_marginTop="16dp"
         android:text="Nama  :"
         app:layout_constraintStart_toStartOf="@+id/guideline"
@@ -45,46 +45,55 @@
 
     <TextView
         android:id="@+id/nomor"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
-        android:text="No urut :"
+        android:text="Liga :"
         app:layout_constraintStart_toStartOf="@+id/nama"
         app:layout_constraintTop_toBottomOf="@+id/nama" />
+
     <TextView
         android:id="@+id/remarks"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
         android:layout_marginTop="8dp"
-        android:text="remarks"
-        app:layout_constraintStart_toStartOf="@+id/title_detail"
+        android:text="Nama Liga"
+        app:layout_constraintStart_toEndOf="@+id/nomor"
         app:layout_constraintTop_toBottomOf="@+id/title_detail"
         tools:ignore="MissingConstraints" />
 
     <TextView
         android:id="@+id/textView2"
-        android:layout_width="53dp"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
-        android:text="Lahir     :"
+        android:text="Sumber     :"
         app:layout_constraintStart_toStartOf="@+id/nomor"
         app:layout_constraintTop_toBottomOf="@+id/nomor" />
+
     <TextView
         android:id="@+id/lahir"
-        android:layout_width="80dp"
+        android:layout_width="0dp"
         android:layout_height="18dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
         android:layout_marginTop="8dp"
-        android:text="Lahir"
-        app:layout_constraintStart_toStartOf="@+id/remarks"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
+        android:text="Sumber Gambar"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/textView2"
         app:layout_constraintTop_toBottomOf="@+id/remarks"
         tools:ignore="MissingConstraints" />
 
     <TextView
         android:id="@+id/height"
-        android:layout_width="50dp"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
-        android:text="Tinggi  :"
+        android:text="Tanggal  :"
         app:layout_constraintStart_toStartOf="@+id/textView2"
         app:layout_constraintTop_toBottomOf="@+id/textView2" />
 
@@ -92,18 +101,20 @@
         android:id="@+id/tinggi"
         android:layout_width="wrap_content"
         android:layout_height="20dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
         android:layout_marginTop="8dp"
-        android:text="Tinggi"
-        app:layout_constraintStart_toStartOf="@+id/lahir"
+        android:text="Tanggal"
+        app:layout_constraintStart_toEndOf="@+id/height"
         app:layout_constraintTop_toBottomOf="@+id/lahir"
         tools:ignore="MissingConstraints" />
 
     <TextView
         android:id="@+id/meninggal"
-        android:layout_width="51dp"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
-        android:text="Wafat   :"
+        android:text="Deskripsi   :"
         app:layout_constraintStart_toStartOf="@+id/height"
         app:layout_constraintTop_toBottomOf="@+id/height"
         tools:ignore="MissingConstraints" />
@@ -112,14 +123,18 @@
         android:id="@+id/wafat"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginRight="8dp"
-        android:layout_marginTop="8dp"
-        android:text="Wafat"
+        android:text="Deskripsi"
+        android:textAlignment="gravity"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="@+id/tinggi"
+        app:layout_constraintStart_toEndOf="@+id/meninggal"
         app:layout_constraintTop_toBottomOf="@+id/tinggi"
-        tools:ignore="MissingConstraints" />
+        tools:ignore="MissingConstraints"
+        android:gravity="fill_vertical" />
 
     <android.support.constraint.Guideline
         android:id="@+id/guideline"

@@ -16,8 +16,8 @@
         android:layout_height="200dp"
         android:padding="8dp">
         <ImageView
-            android:layout_width="150dp"
-            android:layout_height="220dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:scaleType="centerCrop"
             android:id="@+id/img_item_photo"
             android:layout_marginBottom="4dp"/>
@@ -52,12 +52,20 @@
             android:orientation="horizontal">
 
             <Button
+                android:id="@+id/btn_like"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="11sp"
+                style="@style/TextAppearance.AppCompat.Widget.Button.Borderless.Colored"
+                android:text="Like"
+                android:layout_weight="1"/>
+            <Button
                 android:id="@+id/btn_set_share"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textSize="11sp"
                 style="@style/Widget.AppCompat.Button.Colored"
-                android:text="View"
+                android:text="Share"
                 android:layout_weight="1"/>
         </LinearLayout>
     </RelativeLayout>

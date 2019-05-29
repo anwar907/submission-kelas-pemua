@@ -35,15 +35,15 @@ public class Detail extends AppCompatActivity {
         setContentView(R.layout.detail);
         ButterKnife.bind(this);
 
-        President president= getIntent().getParcelableExtra("data");
+        Data data = getIntent().getParcelableExtra("data");
 
-        tvdetail.setText(president.getName());
-        remarks.setText(president.getRemarks());
-        tvlahir.setText(president.getDate());
-        tvwafat.setText(president.getWafat());
-        tvtinggi.setText(president.getHeight());
+        tvdetail.setText(data.getName());
+        remarks.setText(data.getRemarks());
+        tvlahir.setText(data.getDate());
+        tvwafat.setText(data.getWafat());
+        tvtinggi.setText(data.getHeight());
         Glide.with(this)
-                .load(president.getPhoto())
+                .load(data.getPhoto())
                 .into(tvimage);
     }
 }

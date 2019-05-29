@@ -14,23 +14,24 @@ import com.bumptech.glide.Glide;
 
 import java.util.ArrayList;
 
-public class CardViewPresidentAdapter extends RecyclerView.Adapter<CardViewPresidentAdapter.CardViewViewHolder>{
-    private ArrayList<President> listPresident;
+public class CardViewAdapter extends RecyclerView.Adapter<CardViewAdapter.CardViewViewHolder>{
+    private ArrayList<Data> listData;
     private Context context;
     private OnClick onClick;
 
-    public CardViewPresidentAdapter(Context context, OnClick onClick) {
+
+    public CardViewAdapter(Context context, OnClick onClick) {
         this.context = context;
         this.onClick = onClick;
 
     }
 
-    public ArrayList<President> getListPresident() {
-        return listPresident;
+    public ArrayList<Data> getListData() {
+        return listData;
     }
 
-    public void setListPresident(ArrayList<President> listPresident) {
-        this.listPresident = listPresident;
+    public void setListData(ArrayList<Data> listData) {
+        this.listData = listData;
     }
     @Override
     public CardViewViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
@@ -41,20 +42,20 @@ public class CardViewPresidentAdapter extends RecyclerView.Adapter<CardViewPresi
 
     @Override
     public void onBindViewHolder(CardViewViewHolder holder, int position) {
-        President p = getListPresident().get(position);
+        Data p = getListData().get(position);
         holder.showContent(p,onClick);
     }
 
     @Override
     public int getItemCount() {
-        return getListPresident().size();
+        return getListData().size();
     }
 
     public class CardViewViewHolder extends RecyclerView.ViewHolder{
         ImageView imgPhoto;
         TextView tvName, tvRemarks;
         Button btnShare;
-
+        Button btnLike;
 
         public CardViewViewHolder(View itemView) {
             super(itemView);
@@ -62,22 +63,30 @@ public class CardViewPresidentAdapter extends RecyclerView.Adapter<CardViewPresi
             tvName = itemView.findViewById(R.id.tv_item_name);
             tvRemarks = itemView.findViewById(R.id.tv_item_remarks);
             btnShare = itemView.findViewById(R.id.btn_set_share);
+            btnLike = itemView.findViewById(R.id.btn_like);
         }
-        public void showContent(final President president, final OnClick OnItemClick){
-            tvName.setText(president.getName());
-            tvRemarks.setText(president.getRemarks());
+        public void showContent(final Data data, final OnClick OnItemClick){
+            tvName.setText(data.getName());
+            tvRemarks.setText(data.getRemarks());
             Glide.with(context)
-                    .load(president.getPhoto())
+                    .load(data.getPhoto())
                     .into(imgPhoto);
-            btnShare.setOnClickListener(new View.OnClickListener() {
+            btnLike.setOnClickListener(new View.OnClickListener() {
                 @Override
-                public void onClick(View v) {
-                    OnItemClick.onClick(president);
+                public void onClick(View view) {
+
                 }
             });
+            imgPhoto.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    OnItemClick.onClick(data);
+                }
+            });
+
         }
     }
     public interface OnClick{
-        void onClick(Object president);
+        void onClick(Object data);
     }
 }

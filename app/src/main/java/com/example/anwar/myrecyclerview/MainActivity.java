@@ -3,9 +3,9 @@ package com.example.anwar.myrecyclerview;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.support.v7.widget.CardView;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 
@@ -14,7 +14,7 @@ import butterknife.ButterKnife;
 
 public class MainActivity extends AppCompatActivity {
 
-    private ArrayList<President>CardView;
+    private ArrayList<Data>CardView;
 
     @BindView(R.id.rv_category)
     RecyclerView rvCategory;
@@ -27,24 +27,28 @@ public class MainActivity extends AppCompatActivity {
         rvCategory.setHasFixedSize(true);
 
         CardView = new ArrayList<>();
-        CardView.addAll(PresidentData.getListData());
+        CardView.addAll(DataValue.getListData());
 
         showRecyclerList();
 
+
+    }
+    private void showSecekcted(DataValue dataValue){
+        Toast.makeText(this, "Like This Logo"+dataValue.getClass(), Toast.LENGTH_SHORT).show();
     }
     private void showRecyclerList(){
         rvCategory.setLayoutManager(new LinearLayoutManager(this));
-        CardViewPresidentAdapter cardViewPresidentAdapter = new CardViewPresidentAdapter(this, new CardViewPresidentAdapter.OnClick() {
+        CardViewAdapter cardViewAdapter = new CardViewAdapter(this, new CardViewAdapter.OnClick() {
             @Override
             public void onClick(Object president) {
-                President president1 = (President) president;
+                Data data1 = (Data) president;
                 Intent intent = new Intent(MainActivity.this, Detail.class);
-                intent.putExtra("data", president1);
+                intent.putExtra("data", data1);
                 startActivity(intent);
             }
         });
-        cardViewPresidentAdapter.setListPresident(CardView);
-        rvCategory.setAdapter(cardViewPresidentAdapter);
+        cardViewAdapter.setListData(CardView);
+        rvCategory.setAdapter(cardViewAdapter);
     }
 
 }

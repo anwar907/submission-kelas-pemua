@@ -3,12 +3,10 @@ package com.example.anwar.myrecyclerview;
 import android.os.Parcel;
 import android.os.Parcelable;
 
-import java.util.Date;
-
-public class President implements Parcelable {
+public class Data implements Parcelable {
     private String name, remarks, photo, date, height, deskripsi, wafat;
 
-    protected President(Parcel in) {
+    protected Data(Parcel in) {
         name = in.readString();
         remarks = in.readString();
         photo = in.readString();
@@ -19,19 +17,19 @@ public class President implements Parcelable {
     }
 
 
-    public static final Creator<President> CREATOR = new Creator<President>() {
+    public static final Creator<Data> CREATOR = new Creator<Data>() {
         @Override
-        public President createFromParcel(Parcel in) {
-            return new President(in);
+        public Data createFromParcel(Parcel in) {
+            return new Data(in);
         }
 
         @Override
-        public President[] newArray(int size) {
-            return new President[size];
+        public Data[] newArray(int size) {
+            return new Data[size];
         }
     };
 
-    public President() {
+    public Data() {
 
     }
 
